@@ -1,0 +1,586 @@
+CRIME_CATEGORY,2020,2024,COUNTY
+Crimes,,,Santaclara
+Violent Crimes,"6,141","8,139",Santaclara
+Homicide,53,35,Santaclara
+Rape (Forcible Rape prior to 2014),806,"1,021",Santaclara
+Rape,796,"1,003",Santaclara
+Attempted Rape,10,18,Santaclara
+Robbery,"1,704","1,923",Santaclara
+Weapon,,,Santaclara
+Firearm,369,286,Santaclara
+Knife or Cutting Instrument,199,197,Santaclara
+Other Weapon,181,264,Santaclara
+Strong-Arm,955,"1,176",Santaclara
+Location,,,Santaclara
+Highway,659,539,Santaclara
+Commercial,374,540,Santaclara
+Gas Station,47,46,Santaclara
+Convenience Store,185,167,Santaclara
+Residence,165,184,Santaclara
+Bank,22,20,Santaclara
+Miscellaneous,252,427,Santaclara
+Aggravated Assault,"3,578","5,160",Santaclara
+Weapon,,,Santaclara
+Firearm,682,646,Santaclara
+Knife or Cutting Instrument,757,919,Santaclara
+Other Weapon,"1,568","2,332",Santaclara
+Hands  Fists  Feet,571,"1,263",Santaclara
+Property Crimes,"43,690","44,677",Santaclara
+Burglary,"7,233","6,735",Santaclara
+Means of Entry,,,Santaclara
+Forcible Entry,"5,312","4,788",Santaclara
+No Force,"1,921","1,947",Santaclara
+Location / Time,,,Santaclara
+Residence,"2,702","2,667",Santaclara
+Night,855,"1,251",Santaclara
+Day,721,"1,251",Santaclara
+Unknown,"1,126",165,Santaclara
+Non-Residence,"4,531","4,068",Santaclara
+Night,"2,221","2,466",Santaclara
+Day,735,"1,431",Santaclara
+Unknown,"1,575",171,Santaclara
+Motor Vehicle Theft,"9,926","8,709",Santaclara
+Automotive,"6,491","6,245",Santaclara
+Trucks and Buses,"2,819","1,851",Santaclara
+Other,616,613,Santaclara
+Larceny-Theft,"26,531","29,233",Santaclara
+Type,,,Santaclara
+Pocket-Picking,82,347,Santaclara
+Purse-Snatching,77,147,Santaclara
+Shoplifting,"2,247","7,270",Santaclara
+From Motor Vehicle,"10,837","7,089",Santaclara
+Motor Vehicle Accessories,"3,894","3,882",Santaclara
+Bicycles,"2,356","1,434",Santaclara
+From Building,"1,606","2,546",Santaclara
+Coin Operated Machine,34,19,Santaclara
+Other,"5,398","6,499",Santaclara
+Value,,,Santaclara
+Over $400,"12,824",,Santaclara
+Over $200,0,"17,862",Santaclara
+$200 through $400,"3,261",,Santaclara
+$50 through $199,"3,510","4,146",Santaclara
+Under $50,"6,936","7,225",Santaclara
+Arson,389,326,Santaclara
+Structural Property,171,68,Santaclara
+Mobile Property,48,46,Santaclara
+Other Property,170,212,Santaclara
+Crimes,,,Marin
+Violent Crimes,623,625,Marin
+Homicide,1,1,Marin
+Rape (Forcible Rape prior to 2014),52,65,Marin
+Rape,48,65,Marin
+Attempted Rape,4,0,Marin
+Robbery,123,151,Marin
+Weapon,,,Marin
+Firearm,14,30,Marin
+Knife or Cutting Instrument,17,14,Marin
+Other Weapon,9,41,Marin
+Strong-Arm,83,66,Marin
+Location,,,Marin
+Highway,47,48,Marin
+Commercial,27,26,Marin
+Gas Station,6,3,Marin
+Convenience Store,9,17,Marin
+Residence,5,12,Marin
+Bank,5,2,Marin
+Miscellaneous,24,43,Marin
+Aggravated Assault,447,408,Marin
+Weapon,,,Marin
+Firearm,28,30,Marin
+Knife or Cutting Instrument,64,55,Marin
+Other Weapon,101,191,Marin
+Hands  Fists  Feet,254,132,Marin
+Property Crimes,"5,273","3,719",Marin
+Burglary,798,397,Marin
+Means of Entry,,,Marin
+Forcible Entry,445,162,Marin
+No Force,353,235,Marin
+Location / Time,,,Marin
+Residence,330,140,Marin
+Night,96,45,Marin
+Day,154,67,Marin
+Unknown,80,28,Marin
+Non-Residence,468,257,Marin
+Night,192,122,Marin
+Day,204,113,Marin
+Unknown,72,22,Marin
+Motor Vehicle Theft,787,458,Marin
+Automotive,494,300,Marin
+Trucks and Buses,252,107,Marin
+Other,41,51,Marin
+Larceny-Theft,"3,688","2,864",Marin
+Type,,,Marin
+Pocket-Picking,9,37,Marin
+Purse-Snatching,11,32,Marin
+Shoplifting,286,765,Marin
+From Motor Vehicle,"1,389",645,Marin
+Motor Vehicle Accessories,478,136,Marin
+Bicycles,468,338,Marin
+From Building,244,173,Marin
+Coin Operated Machine,2,5,Marin
+Other,801,733,Marin
+Value,,,Marin
+Over $400,"2,003",,Marin
+Over $200,0,"1,739",Marin
+$200 through $400,426,,Marin
+$50 through $199,480,399,Marin
+Under $50,779,726,Marin
+Arson,51,43,Marin
+Structural Property,25,9,Marin
+Mobile Property,2,2,Marin
+Other Property,24,32,Marin
+Crimes,,,Sanmateo
+Violent Crimes,"1,754","1,927",Sanmateo
+Homicide,16,12,Sanmateo
+Rape (Forcible Rape prior to 2014),283,234,Sanmateo
+Rape,275,225,Sanmateo
+Attempted Rape,8,9,Sanmateo
+Robbery,520,502,Sanmateo
+Weapon,,,Sanmateo
+Firearm,95,93,Sanmateo
+Knife or Cutting Instrument,46,53,Sanmateo
+Other Weapon,29,66,Sanmateo
+Strong-Arm,350,290,Sanmateo
+Location,,,Sanmateo
+Highway,172,158,Sanmateo
+Commercial,118,110,Sanmateo
+Gas Station,18,11,Sanmateo
+Convenience Store,33,36,Sanmateo
+Residence,56,46,Sanmateo
+Bank,7,9,Sanmateo
+Miscellaneous,116,132,Sanmateo
+Aggravated Assault,935,"1,179",Sanmateo
+Weapon,,,Sanmateo
+Firearm,104,129,Sanmateo
+Knife or Cutting Instrument,127,158,Sanmateo
+Other Weapon,291,496,Sanmateo
+Hands  Fists  Feet,413,396,Sanmateo
+Property Crimes,"15,604","12,204",Sanmateo
+Burglary,"2,155",901,Sanmateo
+Means of Entry,,,Sanmateo
+Forcible Entry,"1,104",239,Sanmateo
+No Force,"1,051",662,Sanmateo
+Location / Time,,,Sanmateo
+Residence,899,497,Sanmateo
+Night,381,239,Sanmateo
+Day,418,204,Sanmateo
+Unknown,100,54,Sanmateo
+Non-Residence,"1,256",404,Sanmateo
+Night,547,209,Sanmateo
+Day,560,166,Sanmateo
+Unknown,149,29,Sanmateo
+Motor Vehicle Theft,"2,199","1,665",Sanmateo
+Automotive,"1,443","1,426",Sanmateo
+Trucks and Buses,493,134,Sanmateo
+Other,263,105,Sanmateo
+Larceny-Theft,"11,250","9,638",Sanmateo
+Type,,,Sanmateo
+Pocket-Picking,59,155,Sanmateo
+Purse-Snatching,26,57,Sanmateo
+Shoplifting,"1,221","3,668",Sanmateo
+From Motor Vehicle,"4,635","1,917",Sanmateo
+Motor Vehicle Accessories,"1,343",902,Sanmateo
+Bicycles,837,316,Sanmateo
+From Building,"1,043",997,Sanmateo
+Coin Operated Machine,25,11,Sanmateo
+Other,"2,061","1,615",Sanmateo
+Value,,,Sanmateo
+Over $400,"5,015",,Sanmateo
+Over $200,0,"5,660",Sanmateo
+$200 through $400,"1,469",,Sanmateo
+$50 through $199,"1,704","1,783",Sanmateo
+Under $50,"3,062","2,195",Sanmateo
+Arson,103,87,Sanmateo
+Structural Property,57,15,Sanmateo
+Mobile Property,2,16,Sanmateo
+Other Property,44,56,Sanmateo
+Crimes,,,Sanfrancisco
+Violent Crimes,"4,922","4,978",Sanfrancisco
+Homicide,49,36,Sanfrancisco
+Rape (Forcible Rape prior to 2014),202,289,Sanfrancisco
+Rape,156,286,Sanfrancisco
+Attempted Rape,46,3,Sanfrancisco
+Robbery,"2,490","2,235",Sanfrancisco
+Weapon,,,Sanfrancisco
+Firearm,376,403,Sanfrancisco
+Knife or Cutting Instrument,188,171,Sanfrancisco
+Other Weapon,256,207,Sanfrancisco
+Strong-Arm,"1,670","1,454",Sanfrancisco
+Location,,,Sanfrancisco
+Highway,455,449,Sanfrancisco
+Commercial,124,59,Sanfrancisco
+Gas Station,8,6,Sanfrancisco
+Convenience Store,164,81,Sanfrancisco
+Residence,44,27,Sanfrancisco
+Bank,19,13,Sanfrancisco
+Miscellaneous,"1,676","1,600",Sanfrancisco
+Aggravated Assault,"2,181","2,418",Sanfrancisco
+Weapon,,,Sanfrancisco
+Firearm,287,254,Sanfrancisco
+Knife or Cutting Instrument,318,324,Sanfrancisco
+Other Weapon,"1,007","1,038",Sanfrancisco
+Hands  Fists  Feet,569,802,Sanfrancisco
+Property Crimes,"39,403","32,871",Sanfrancisco
+Burglary,"7,513","5,217",Sanfrancisco
+Means of Entry,,,Sanfrancisco
+Forcible Entry,"4,393","3,000",Sanfrancisco
+No Force,"3,120","2,217",Sanfrancisco
+Location / Time,,,Sanfrancisco
+Residence,"2,670","1,887",Sanfrancisco
+Night,"1,601","1,053",Sanfrancisco
+Day,"1,068",834,Sanfrancisco
+Unknown,1,0,Sanfrancisco
+Non-Residence,"4,843","3,330",Sanfrancisco
+Night,"3,240","2,313",Sanfrancisco
+Day,"1,600","1,011",Sanfrancisco
+Unknown,3,6,Sanfrancisco
+Motor Vehicle Theft,"5,989","5,499",Sanfrancisco
+Automotive,"4,158","4,037",Sanfrancisco
+Trucks and Buses,773,518,Sanfrancisco
+Other,"1,058",944,Sanfrancisco
+Larceny-Theft,"25,901","22,155",Sanfrancisco
+Type,,,Sanfrancisco
+Pocket-Picking,330,477,Sanfrancisco
+Purse-Snatching,14,9,Sanfrancisco
+Shoplifting,"1,525","2,909",Sanfrancisco
+From Motor Vehicle,"14,284","8,876",Sanfrancisco
+Motor Vehicle Accessories,374,465,Sanfrancisco
+Bicycles,486,302,Sanfrancisco
+From Building,"1,814","1,719",Sanfrancisco
+Coin Operated Machine,3,0,Sanfrancisco
+Other,"7,071","7,398",Sanfrancisco
+Value,,,Sanfrancisco
+Over $400,"16,665",,Sanfrancisco
+Over $200,0,"15,087",Sanfrancisco
+$200 through $400,"2,972",,Sanfrancisco
+$50 through $199,"3,083","2,645",Sanfrancisco
+Under $50,"3,181","4,423",Sanfrancisco
+Arson,381,271,Sanfrancisco
+Structural Property,119,168,Sanfrancisco
+Mobile Property,114,100,Sanfrancisco
+Other Property,148,3,Sanfrancisco
+Crimes,,,Solano
+Violent Crimes,"2,350","2,152",Solano
+Homicide,40,26,Solano
+Rape (Forcible Rape prior to 2014),275,194,Solano
+Rape,271,187,Solano
+Attempted Rape,4,7,Solano
+Robbery,589,551,Solano
+Weapon,,,Solano
+Firearm,181,152,Solano
+Knife or Cutting Instrument,45,40,Solano
+Other Weapon,43,84,Solano
+Strong-Arm,320,275,Solano
+Location,,,Solano
+Highway,157,143,Solano
+Commercial,130,123,Solano
+Gas Station,35,7,Solano
+Convenience Store,38,45,Solano
+Residence,62,49,Solano
+Bank,7,9,Solano
+Miscellaneous,160,175,Solano
+Aggravated Assault,"1,446","1,381",Solano
+Weapon,,,Solano
+Firearm,478,262,Solano
+Knife or Cutting Instrument,128,171,Solano
+Other Weapon,410,499,Solano
+Hands  Fists  Feet,430,449,Solano
+Property Crimes,"10,689","10,100",Solano
+Burglary,"2,751","1,450",Solano
+Means of Entry,,,Solano
+Forcible Entry,"1,686",366,Solano
+No Force,"1,065","1,084",Solano
+Location / Time,,,Solano
+Residence,763,420,Solano
+Night,283,183,Solano
+Day,370,211,Solano
+Unknown,110,26,Solano
+Non-Residence,"1,988","1,030",Solano
+Night,957,658,Solano
+Day,875,325,Solano
+Unknown,156,47,Solano
+Motor Vehicle Theft,"2,243","1,705",Solano
+Automotive,"1,464","1,370",Solano
+Trucks and Buses,552,256,Solano
+Other,227,79,Solano
+Larceny-Theft,"5,695","6,945",Solano
+Type,,,Solano
+Pocket-Picking,24,43,Solano
+Purse-Snatching,12,14,Solano
+Shoplifting,721,"1,866",Solano
+From Motor Vehicle,"1,936","2,187",Solano
+Motor Vehicle Accessories,"1,074",826,Solano
+Bicycles,123,159,Solano
+From Building,601,326,Solano
+Coin Operated Machine,9,2,Solano
+Other,"1,195","1,522",Solano
+Value,,,Solano
+Over $400,"2,342",,Solano
+Over $200,0,"4,060",Solano
+$200 through $400,741,,Solano
+$50 through $199,906,"1,055",Solano
+Under $50,"1,706","1,830",Solano
+Arson,177,114,Solano
+Structural Property,134,20,Solano
+Mobile Property,2,16,Solano
+Other Property,41,78,Solano
+Crimes,,,Napa
+Violent Crimes,539,418,Napa
+Homicide,1,7,Napa
+Rape (Forcible Rape prior to 2014),65,49,Napa
+Rape,64,47,Napa
+Attempted Rape,1,2,Napa
+Robbery,59,53,Napa
+Weapon,,,Napa
+Firearm,15,7,Napa
+Knife or Cutting Instrument,4,5,Napa
+Other Weapon,4,15,Napa
+Strong-Arm,36,26,Napa
+Location,,,Napa
+Highway,14,13,Napa
+Commercial,17,15,Napa
+Gas Station,0,2,Napa
+Convenience Store,4,3,Napa
+Residence,8,5,Napa
+Bank,1,1,Napa
+Miscellaneous,15,14,Napa
+Aggravated Assault,414,309,Napa
+Weapon,,,Napa
+Firearm,50,14,Napa
+Knife or Cutting Instrument,62,26,Napa
+Other Weapon,70,130,Napa
+Hands  Fists  Feet,232,139,Napa
+Property Crimes,"2,306","1,656",Napa
+Burglary,522,111,Napa
+Means of Entry,,,Napa
+Forcible Entry,194,83,Napa
+No Force,328,28,Napa
+Location / Time,,,Napa
+Residence,190,48,Napa
+Night,41,18,Napa
+Day,70,30,Napa
+Unknown,79,0,Napa
+Non-Residence,332,63,Napa
+Night,93,39,Napa
+Day,139,24,Napa
+Unknown,100,0,Napa
+Motor Vehicle Theft,273,221,Napa
+Automotive,142,102,Napa
+Trucks and Buses,106,92,Napa
+Other,25,27,Napa
+Larceny-Theft,"1,511","1,324",Napa
+Type,,,Napa
+Pocket-Picking,1,10,Napa
+Purse-Snatching,5,7,Napa
+Shoplifting,198,328,Napa
+From Motor Vehicle,551,238,Napa
+Motor Vehicle Accessories,137,74,Napa
+Bicycles,145,76,Napa
+From Building,67,163,Napa
+Coin Operated Machine,5,4,Napa
+Other,402,424,Napa
+Value,,,Napa
+Over $400,756,,Napa
+Over $200,0,855,Napa
+$200 through $400,178,,Napa
+$50 through $199,210,181,Napa
+Under $50,367,288,Napa
+Arson,14,24,Napa
+Structural Property,6,4,Napa
+Mobile Property,1,1,Napa
+Other Property,7,19,Napa
+Crimes,,,Contracosta
+Violent Crimes,"3,870","4,437",Contracosta
+Homicide,44,38,Contracosta
+Rape (Forcible Rape prior to 2014),283,297,Contracosta
+Rape,264,272,Contracosta
+Attempted Rape,19,25,Contracosta
+Robbery,"1,158","1,250",Contracosta
+Weapon,,,Contracosta
+Firearm,344,323,Contracosta
+Knife or Cutting Instrument,90,95,Contracosta
+Other Weapon,99,266,Contracosta
+Strong-Arm,625,566,Contracosta
+Location,,,Contracosta
+Highway,300,300,Contracosta
+Commercial,239,370,Contracosta
+Gas Station,45,38,Contracosta
+Convenience Store,129,83,Contracosta
+Residence,145,157,Contracosta
+Bank,30,28,Contracosta
+Miscellaneous,270,274,Contracosta
+Aggravated Assault,"2,385","2,852",Contracosta
+Weapon,,,Contracosta
+Firearm,739,626,Contracosta
+Knife or Cutting Instrument,322,319,Contracosta
+Other Weapon,854,"1,061",Contracosta
+Hands  Fists  Feet,470,846,Contracosta
+Property Crimes,"23,698","25,104",Contracosta
+Burglary,"3,261","3,496",Contracosta
+Means of Entry,,,Contracosta
+Forcible Entry,"2,283","2,663",Contracosta
+No Force,978,833,Contracosta
+Location / Time,,,Contracosta
+Residence,"1,278",950,Contracosta
+Night,435,397,Contracosta
+Day,557,492,Contracosta
+Unknown,286,61,Contracosta
+Non-Residence,"1,983","2,546",Contracosta
+Night,"1,067","1,286",Contracosta
+Day,537,977,Contracosta
+Unknown,379,283,Contracosta
+Motor Vehicle Theft,"5,147","5,963",Contracosta
+Automotive,"3,485","4,259",Contracosta
+Trucks and Buses,"1,325","1,297",Contracosta
+Other,337,407,Contracosta
+Larceny-Theft,"15,290","15,645",Contracosta
+Type,,,Contracosta
+Pocket-Picking,74,220,Contracosta
+Purse-Snatching,52,64,Contracosta
+Shoplifting,"2,211","4,744",Contracosta
+From Motor Vehicle,"5,898","3,862",Contracosta
+Motor Vehicle Accessories,"2,293","2,032",Contracosta
+Bicycles,506,451,Contracosta
+From Building,"1,004",921,Contracosta
+Coin Operated Machine,14,5,Contracosta
+Other,"3,238","3,346",Contracosta
+Value,,,Contracosta
+Over $400,"6,811",,Contracosta
+Over $200,0,"9,338",Contracosta
+$200 through $400,"1,803",,Contracosta
+$50 through $199,"2,425","2,560",Contracosta
+Under $50,"4,251","3,747",Contracosta
+Arson,286,204,Contracosta
+Structural Property,98,39,Contracosta
+Mobile Property,106,30,Contracosta
+Other Property,82,135,Contracosta
+Crimes,,,Sonoma
+Violent Crimes,"2,212","1,350",Sonoma
+Homicide,10,6,Sonoma
+Rape (Forcible Rape prior to 2014),239,285,Sonoma
+Rape,230,272,Sonoma
+Attempted Rape,9,13,Sonoma
+Robbery,266,218,Sonoma
+Weapon,,,Sonoma
+Firearm,45,31,Sonoma
+Knife or Cutting Instrument,32,29,Sonoma
+Other Weapon,82,28,Sonoma
+Strong-Arm,107,130,Sonoma
+Location,,,Sonoma
+Highway,54,45,Sonoma
+Commercial,41,54,Sonoma
+Gas Station,4,5,Sonoma
+Convenience Store,15,8,Sonoma
+Residence,23,30,Sonoma
+Bank,1,5,Sonoma
+Miscellaneous,128,71,Sonoma
+Aggravated Assault,"1,697",841,Sonoma
+Weapon,,,Sonoma
+Firearm,181,96,Sonoma
+Knife or Cutting Instrument,200,143,Sonoma
+Other Weapon,542,349,Sonoma
+Hands  Fists  Feet,774,253,Sonoma
+Property Crimes,"6,412","5,270",Sonoma
+Burglary,"1,272",894,Sonoma
+Means of Entry,,,Sonoma
+Forcible Entry,409,549,Sonoma
+No Force,863,345,Sonoma
+Location / Time,,,Sonoma
+Residence,319,327,Sonoma
+Night,92,115,Sonoma
+Day,89,209,Sonoma
+Unknown,138,3,Sonoma
+Non-Residence,953,567,Sonoma
+Night,393,208,Sonoma
+Day,242,348,Sonoma
+Unknown,318,11,Sonoma
+Motor Vehicle Theft,732,602,Sonoma
+Automotive,447,446,Sonoma
+Trucks and Buses,166,114,Sonoma
+Other,119,42,Sonoma
+Larceny-Theft,"4,408","3,774",Sonoma
+Type,,,Sonoma
+Pocket-Picking,11,20,Sonoma
+Purse-Snatching,17,16,Sonoma
+Shoplifting,483,"1,054",Sonoma
+From Motor Vehicle,"1,498",753,Sonoma
+Motor Vehicle Accessories,583,271,Sonoma
+Bicycles,262,225,Sonoma
+From Building,275,194,Sonoma
+Coin Operated Machine,5,3,Sonoma
+Other,"1,274","1,238",Sonoma
+Value,,,Sonoma
+Over $400,"2,117",,Sonoma
+Over $200,0,"2,423",Sonoma
+$200 through $400,516,,Sonoma
+$50 through $199,543,630,Sonoma
+Under $50,"1,232",721,Sonoma
+Arson,74,85,Sonoma
+Structural Property,35,23,Sonoma
+Mobile Property,19,11,Sonoma
+Other Property,20,51,Sonoma
+Crimes,,,Alameda
+Violent Crimes,"9,645","13,075",Alameda
+Homicide,143,132,Alameda
+Rape (Forcible Rape prior to 2014),684,596,Alameda
+Rape,651,569,Alameda
+Attempted Rape,33,27,Alameda
+Robbery,"4,149","4,591",Alameda
+Weapon,,,Alameda
+Firearm,"1,457","2,007",Alameda
+Knife or Cutting Instrument,310,261,Alameda
+Other Weapon,305,367,Alameda
+Strong-Arm,"2,077","1,956",Alameda
+Location,,,Alameda
+Highway,"2,081","2,524",Alameda
+Commercial,335,479,Alameda
+Gas Station,123,178,Alameda
+Convenience Store,326,281,Alameda
+Residence,311,313,Alameda
+Bank,40,55,Alameda
+Miscellaneous,933,761,Alameda
+Aggravated Assault,"4,669","7,756",Alameda
+Weapon,,,Alameda
+Firearm,"1,296","2,358",Alameda
+Knife or Cutting Instrument,518,343,Alameda
+Other Weapon,"2,036","3,503",Alameda
+Hands  Fists  Feet,819,"1,552",Alameda
+Property Crimes,"58,293","70,676",Alameda
+Burglary,"7,034","7,722",Alameda
+Means of Entry,,,Alameda
+Forcible Entry,"5,049","5,136",Alameda
+No Force,"1,985","2,586",Alameda
+Location / Time,,,Alameda
+Residence,"2,944","2,509",Alameda
+Night,"1,132","1,045",Alameda
+Day,"1,041","1,090",Alameda
+Unknown,771,374,Alameda
+Non-Residence,"4,090","5,213",Alameda
+Night,"2,152","3,045",Alameda
+Day,880,"1,528",Alameda
+Unknown,"1,058",640,Alameda
+Motor Vehicle Theft,"14,456","20,121",Alameda
+Automotive,"12,452","18,118",Alameda
+Trucks and Buses,"1,425","1,042",Alameda
+Other,579,961,Alameda
+Larceny-Theft,"36,803","42,833",Alameda
+Type,,,Alameda
+Pocket-Picking,701,280,Alameda
+Purse-Snatching,236,251,Alameda
+Shoplifting,"3,232","6,362",Alameda
+From Motor Vehicle,"16,081","15,850",Alameda
+Motor Vehicle Accessories,"5,614","8,923",Alameda
+Bicycles,"1,394","1,056",Alameda
+From Building,"1,330","1,292",Alameda
+Coin Operated Machine,33,64,Alameda
+Other,"8,182","8,755",Alameda
+Value,,,Alameda
+Over $400,"16,327",,Alameda
+Over $200,0,"21,282",Alameda
+$200 through $400,"4,115",,Alameda
+$50 through $199,"4,571","4,448",Alameda
+Under $50,"11,790","17,103",Alameda
+Arson,495,395,Alameda
+Structural Property,232,76,Alameda
+Mobile Property,194,95,Alameda
+Other Property,69,224,Alameda
