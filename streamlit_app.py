@@ -33,6 +33,15 @@ def load_data():
     
     return gdf
 
+# Helper to create county boundaries from existing ZIP data
+def get_county_boundaries(gdf):
+    # Dissolve (merge) ZIPs by County Name
+    # Assumes you have a column named 'COUNTY' or 'County_Name'
+    # If not, you might need to map ZIPs to Counties first
+    if 'COUNTY' in gdf.columns:
+        county_gdf = gdf.dissolve(by='COUNTY').reset_index()
+        return county_gdf
+    return None
 
 # 3. SCORING FUNCTION
 def calculate_final_score(gdf, max_rent, bedroom_col, weights):
@@ -92,6 +101,9 @@ def main():
 
     # --- SIDEBAR CONTROLS ---
     with st.sidebar.form(key='search_form'):
+
+        show_county = st.checkbox("Display County Borders?", value=True)
+
         st.header("1. Housing Needs")
         bedroom_option = st.selectbox(
             "Apartment Size", 
@@ -118,11 +130,11 @@ def main():
         w_transit = st.slider("Public Transit Access (BART, CalTrain)", 0, 3, 2)
         w_income = st.slider("Local Wealth / Human Capital", 0, 10, 3)
 
+        show_income = st.checkbox("Display Median Income?", value=True)
+        show_viol_crime = st.checkbox("Display Violent Crime Data?", value=True)
+        show_prop_crime = st.checkbox("Display Property Crime Data?", value=True)
         show_transit = st.checkbox("Display Public Transit Data?")
-        show_viol_crime = st.checkbox("Display Violent Crime Data?")
-        show_prop_crime = st.checkbox("Display Property Crime Data?")
-        show_income = st.checkbox("Display Median Income?")
-        show_households = st.checkbox("Display Total Households?")
+        show_households = st.checkbox("Display Total Households?",)
 
         st.form_submit_button(label='Update Map')
 
@@ -179,18 +191,52 @@ def main():
             highlight=True
         ).add_to(m)
 
+        county_boundaries = get_county_boundaries(gdf)
+        
+        if county_boundaries is not None and show_county:
+            folium.GeoJson(
+                county_boundaries,
+                name="County Borders",
+                style_function=lambda x: {
+                    'color': 'purple',      # Color border
+                    'weight': 2.5,           # Thicker line
+                    'opacity': 1.0,      # Transparent fill (only show the border)
+                },
+                tooltip=None,
+                interactive=False
+            ).add_to(m)
+
         # ADD TOOLTIPS (Hover info)
         # Using GeoJsonTooltip on the choropleth's geojson layer
         fields_ = ['ZIP', 'final_score', selected_bed_col, selected_bed_col + '_90', selected_bed_col + '_110']
         aliases_ = ['ZIP:', 'Score:', 'Rent:', 'Rent (90th Percentile):', 'Rent (110th Percentile):']
+
+        # form display options get updated here, DEFINITELY not the most efficient way but it works lmao
         if show_viol_crime: fields_.extend(['2024_CRIMERATE_VIOL', 'CHANGE_IN_CRIME_VIOL%']); aliases_.extend(['Violent Crime Rate (2024):', 'Violent Crime Rate Percent since 2020:'])
         if show_prop_crime: fields_.extend(['2024_CRIMERATE_PROP', 'CHANGE_IN_CRIME_PROP%']); aliases_.extend(['Property Crime Rate (2024):', 'Property Crime Rate Percent since 2020:'])
         if show_income: fields_.append('DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'); aliases_.append('Median Household Income:')
         if show_households: fields_.append('TOTAL_HOUSEHOLDS_EST'); aliases_.append('Total Households:')
         if show_transit: fields_.extend(['BART_COUNT', 'CalTrain_COUNT']); aliases_.extend(['BART:', 'CalTrain:'])
+
         folium.GeoJsonTooltip(
             fields=fields_,
             aliases=aliases_,
+            localize=True
+        ).add_to(cp.geojson)
+
+
+        # FIX THESE POPUPS LATER TO DISPLAY MORE DATA AND HAVE TOOLTIPS DISPLAY LESS DATA (or at least more concise)
+        folium.GeoJsonPopup(
+            fields=[
+                '2024_CRIMERATE_VIOL', 
+                'BART_COUNT', 
+                'DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'
+            ],
+            aliases=[
+                'Violent Crime Rate:', 
+                'BART Stations:', 
+                'Median Income:'
+            ],
             localize=True
         ).add_to(cp.geojson)
 
@@ -209,7 +255,7 @@ if __name__ == "__main__":
     ##### THINGS TO COMPLETE BEFORE THE PROJECT IS DONE #######:
 
     # - adding $ signs and making rent columns look better might need to be done in jupyter
-    # - make crime more readable, maybe in jupyter
+    # - make crime more readable, maybe in jupyter. USE POPUPS INSTEAD OF TOOLTIPS FOR COMPLEX DATA!!
+    # - dress up tooltips and popups in general, emojis based on crime going up or down, etc.
     # - make the sidebars look better
-    # - Light borders around the counties
     # - Give details about construction of the dataframe and how the scores are calculated
