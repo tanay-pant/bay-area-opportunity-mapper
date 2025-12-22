@@ -91,7 +91,7 @@ def main():
         return
 
     # --- SIDEBAR CONTROLS ---
-    with st.sidebar:
+    with st.sidebar.form(key='search_form'):
         st.header("1. Housing Needs")
         bedroom_option = st.selectbox(
             "Apartment Size", 
@@ -117,6 +117,8 @@ def main():
         w_transit = st.slider("Public Transit Access (BART, CalTrain)", 0, 3, 2)
         w_income = st.slider("Local Wealth / Human Capital", 0, 10, 3)
 
+        submit_button = st.form_submit_button(label='Update Map')
+
     # --- APP LOGIC FROM HERE ON OUT ---
     
     # 1. Calculate Scores
@@ -141,8 +143,21 @@ def main():
         #
         # ------ UNUSED, DISPLAY DATAFRAME WITH THE TOP TEN RESULTS -----------
 
+        # keep some bounds so that map stays in Bay Area zone
+
+        min_lon, max_lon = -123.5, -120.3
+        min_lat, max_lat = 36.5, 39.6
+
         # center map on Bay area
-        m = folium.Map(location=[37.8272, -122.2913], zoom_start=10)
+        m = folium.Map(location=[37.85, -121.89], zoom_start=9,
+                min_lat=min_lat, max_lat=max_lat, min_lon=min_lon, max_lon=max_lon,)
+
+        bounds = results.total_bounds
+        # Folium requires bounds in [[lat_min, lon_min], [lat_max, lon_max]] format
+        m.fit_bounds([
+            [bounds[1], bounds[0]], # southwest corner (lat, lon)
+            [bounds[3], bounds[2]]  # northeast corner (lat, lon)
+        ])
 
         # Pass the 'results' GeoDataFrame as BOTH the geo_data and the data
         cp = folium.Choropleth(
@@ -150,10 +165,10 @@ def main():
             data=results,                    # The data (scores)
             columns=['ZIP', 'final_score'],  # [Key, Value]
             key_on='feature.properties.ZIP', # Use properties.ZIP to link geometry to data
-            fill_color='YlGn',
+            fill_color='RdYlGn', # get that distinctive red/green heatmap color scheme
             fill_opacity=0.7,
             line_opacity=0.2,
-            legend_name='Opportunity Score',
+            legend_name='Opportunity Score (0-100)',
             highlight=True
         ).add_to(m)
 
@@ -166,12 +181,12 @@ def main():
         ).add_to(cp.geojson)
 
         # RENDER MAP
-        st_folium(m, width=1200, height=600)
+        st_folium(m, use_container_width=True, height=600, returned_objects=[])
         
         # Top 10 Table
         with st.expander("See Top 10 Details"):
             # Drop geometry for cleaner table display
-            display_cols = ['ZIP', 'CITY', 'final_score', selected_bed_col, '2024_CRIMERATE_VIOL', 'BART_COUNT']
+            display_cols = ['ZIP', 'final_score', selected_bed_col, '2024_CRIMERATE_VIOL', 'BART_COUNT']
             st.dataframe(results[display_cols].drop(columns='geometry', errors='ignore').head(10), use_container_width=True)
 
 if __name__ == "__main__":
