@@ -107,17 +107,24 @@ def main():
             "4 Bedrooms": "RENT_4BD"
         }
         selected_bed_col = bedroom_map[bedroom_option]
+        selected_bed_col_display = f"${selected_bed_col}.00"
 
         budget = st.slider("Max Monthly Budget ($)", 800, 10000, 3500, step=100)
 
         st.header("2. Priorities (0-10)")
         w_rent = st.slider("Low Cost", 0, 10, 5)
         w_safety_viol = st.slider("Safety — VIOLENCE (2024 Rate)", 0, 10, 8)
-        w_safety_prop = st.slider("Safety — PROPERTY (2024 Rate)", 0, 10, 7)
+        w_safety_prop = st.slider("Safety — PROPERTY (2024 Rate)", 0, 10, 7) 
         w_transit = st.slider("Public Transit Access (BART, CalTrain)", 0, 3, 2)
         w_income = st.slider("Local Wealth / Human Capital", 0, 10, 3)
 
-        submit_button = st.form_submit_button(label='Update Map')
+        show_transit = st.checkbox("Display Public Transit Data?")
+        show_viol_crime = st.checkbox("Display Violent Crime Data?")
+        show_prop_crime = st.checkbox("Display Property Crime Data?")
+        show_income = st.checkbox("Display Median Income?")
+        show_households = st.checkbox("Display Total Households?")
+
+        st.form_submit_button(label='Update Map')
 
     # --- APP LOGIC FROM HERE ON OUT ---
     
@@ -165,7 +172,7 @@ def main():
             data=results,                    # The data (scores)
             columns=['ZIP', 'final_score'],  # [Key, Value]
             key_on='feature.properties.ZIP', # Use properties.ZIP to link geometry to data
-            fill_color='RdYlGn', # get that distinctive red/green heatmap color scheme
+            fill_color='RdYlGn',             # get that distinctive red/green heatmap color scheme
             fill_opacity=0.7,
             line_opacity=0.2,
             legend_name='Opportunity Score (0-100)',
@@ -174,14 +181,21 @@ def main():
 
         # ADD TOOLTIPS (Hover info)
         # Using GeoJsonTooltip on the choropleth's geojson layer
+        fields_ = ['ZIP', 'final_score', selected_bed_col, selected_bed_col + '_90', selected_bed_col + '_110']
+        aliases_ = ['ZIP:', 'Score:', 'Rent:', 'Rent (90th Percentile):', 'Rent (110th Percentile):']
+        if show_viol_crime: fields_.extend(['2024_CRIMERATE_VIOL', 'CHANGE_IN_CRIME_VIOL%']); aliases_.extend(['Violent Crime Rate (2024):', 'Violent Crime Rate Percent since 2020:'])
+        if show_prop_crime: fields_.extend(['2024_CRIMERATE_PROP', 'CHANGE_IN_CRIME_PROP%']); aliases_.extend(['Property Crime Rate (2024):', 'Property Crime Rate Percent since 2020:'])
+        if show_income: fields_.append('DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'); aliases_.append('Median Household Income:')
+        if show_households: fields_.append('TOTAL_HOUSEHOLDS_EST'); aliases_.append('Total Households:')
+        if show_transit: fields_.extend(['BART_COUNT', 'CalTrain_COUNT']); aliases_.extend(['BART:', 'CalTrain:'])
         folium.GeoJsonTooltip(
-            fields=['ZIP', 'CITY', 'final_score', selected_bed_col],
-            aliases=['ZIP:', 'City:', 'Score:', 'Rent:'],
+            fields=fields_,
+            aliases=aliases_,
             localize=True
         ).add_to(cp.geojson)
 
         # RENDER MAP
-        st_folium(m, use_container_width=True, height=600, returned_objects=[])
+        st_folium(m, use_container_width=True, height=450, returned_objects=[])
         
         # Top 10 Table
         with st.expander("See Top 10 Details"):
@@ -191,3 +205,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    ##### THINGS TO COMPLETE BEFORE THE PROJECT IS DONE #######:
+
+    # - adding $ signs and making rent columns look better might need to be done in jupyter
+    # - make crime more readable, maybe in jupyter
+    # - make the sidebars look better
+    # - Light borders around the counties
+    # - Give details about construction of the dataframe and how the scores are calculated
