@@ -16,7 +16,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
     # read final_df
-    df = pd.read_csv('~/Downloads/opportunity mapper/final_df_with_norms.csv')
+    df = pd.read_csv('~/Downloads/opportunity mapper/bay-area-opportunity-mapper/final_df_with_norms.csv')
 
     # now convert geometry to shapely objects for map
     df['geometry'] = df['geometry'].apply(wkt.loads)
@@ -243,9 +243,9 @@ if __name__ == "__main__":
 
     ##### THINGS TO COMPLETE BEFORE THE PROJECT IS DONE #######:
 
-    # - adding $ signs and making rent columns look better might need to be done in jupyter
     # - make crime more readable, maybe in jupyter. USE POPUPS INSTEAD OF TOOLTIPS FOR COMPLEX DATA!!
     # - dress up tooltips and popups in general, emojis based on crime going up or down, etc.
     # - Look at weights: what's up with them not being normalized ints? Public transit matters less than the others, why?
     # - make the sidebars look better
     # - Give details about construction of the dataframe and how the scores are calculated
+    # - show population in tooltip not popup
