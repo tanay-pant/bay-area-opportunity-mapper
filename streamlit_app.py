@@ -16,7 +16,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
     # read final_df
-    df = pd.read_csv('~/Downloads/opportunity mapper/bay-area-opportunity-mapper/final_df_with_norms.csv')
+    df = pd.read_csv('~/Downloads/bay-area-opportunity-mapper/final_df_with_norms.csv')
 
     # now convert geometry to shapely objects for map
     df['geometry'] = df['geometry'].apply(wkt.loads)
@@ -117,7 +117,6 @@ def main():
             "4 Bedrooms": "RENT_4BD"
         }
         selected_bed_col = bedroom_map[bedroom_option]
-        selected_bed_col_display = f"${selected_bed_col}.00"
 
         budget = st.slider("Max Monthly Budget ($)", 800, 10000, 3500, step=100)
 
@@ -129,8 +128,7 @@ def main():
         w_income = st.slider("Local Wealth / Human Capital", 0, 10, 3)
 
         show_income = st.checkbox("Display Median Income?", value=True)
-        show_viol_crime = st.checkbox("Display Violent Crime Data?", value=True)
-        show_prop_crime = st.checkbox("Display Property Crime Data?", value=True)
+        show_crime_stats = st.checkbox("Display Crime Data?", value=True)
         show_transit = st.checkbox("Display Public Transit Data?")
         show_households = st.checkbox("Display Total Households?",)
 
@@ -176,6 +174,9 @@ def main():
             [bounds[3], bounds[2]]  # northeast corner (lat, lon)
         ])
 
+        # create a user-friendly string for final score (e.g. "85.3/100") (gonna use for tooltip display later on)
+        results['final_score_str'] = results['final_score'].apply(lambda x: f"{str(x)}/100")
+
         # Pass the 'results' GeoDataFrame as BOTH the geo_data and the data
         cp = folium.Choropleth(
             geo_data=results,                # geometry
@@ -206,26 +207,30 @@ def main():
 
         # ADD TOOLTIPS (Hover info)
         # Using GeoJsonTooltip on the choropleth's geojson layer
-        fields_ = ['ZIP', 'final_score', selected_bed_col, selected_bed_col + '_90', selected_bed_col + '_110']
-        aliases_ = ['ZIP:', 'Score:', 'Rent:', 'Rent (90th Percentile):', 'Rent (110th Percentile):']
+
+        ttfields_ = ['ZIP', 'COUNTY', 'final_score_str', f'DISPLAY_{selected_bed_col}']
+        ttaliases_ = ['ZIP:', 'County:', 'Opportunity Score:', 'Median Rent:', ]
 
         # form display options get updated here, DEFINITELY not the most efficient way but it works lmao
-        if show_viol_crime: fields_.extend(['2024_CRIMERATE_VIOL', 'CHANGE_IN_CRIME_VIOL%']); aliases_.extend(['Violent Crime Rate (2024):', 'Violent Crime Rate Percent since 2020:'])
-        if show_prop_crime: fields_.extend(['2024_CRIMERATE_PROP', 'CHANGE_IN_CRIME_PROP%']); aliases_.extend(['Property Crime Rate (2024):', 'Property Crime Rate Percent since 2020:'])
-        if show_income: fields_.append('DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'); aliases_.append('Median Household Income:')
-        if show_households: fields_.append('TOTAL_HOUSEHOLDS_EST'); aliases_.append('Total Households:')
-        if show_transit: fields_.extend(['BART_COUNT', 'CalTrain_COUNT']); aliases_.extend(['BART:', 'CalTrain:'])
-
+        if show_crime_stats: ttfields_.extend(['DISPLAY_CHANGE_IN_CRIME_VIOL%', 'DISPLAY_CHANGE_IN_CRIME_PROP%']); ttaliases_.extend(['Violent crime since 2020:', 'Property Crime since 2020:']) # repeated line 225 for clarity (for popups)
+        if show_income: ttfields_.append('DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'); ttaliases_.append('Median Household Income:')
         folium.GeoJsonTooltip(
-            fields=fields_,
-            aliases=aliases_,
+            fields=ttfields_,
+            aliases=ttaliases_,
             localize=True
         ).add_to(cp.geojson)
 
+        pufields_ = ['ZPOP', f'DISPLAY_{selected_bed_col}_RANGE']
+        pualiases_ = ['Population:', 'Average Rent Range:']
+
+        if show_households: pufields_.append('TOTAL_HOUSEHOLDS_EST'); pualiases_.append('Total Households:')
+        if show_transit: pufields_.extend(['BART_COUNT', 'CalTrain_COUNT']); pualiases_.extend(['BART Stations:', 'CalTrain Stations:'])
+        if show_crime_stats: pufields_.extend(['DISPLAY_2024_CRIMERATE_VIOL', 'DISPLAY_2024_CRIMERATE_PROP']); pualiases_.extend(['2024 Violent Crime:', '2024 Property Crime:'])
+
         # FIX THESE POPUPS LATER TO DISPLAY MORE DATA AND HAVE TOOLTIPS DISPLAY LESS DATA (or at least more concise)
         folium.GeoJsonPopup(
-            fields=fields_,
-            aliases=aliases_,
+            fields=pufields_,
+            aliases=pualiases_,
             localize=True
         ).add_to(cp.geojson)
 
@@ -235,7 +240,7 @@ def main():
         # Top 10 Table
         with st.expander("See Top 10 Details"):
             # Drop geometry for cleaner table display
-            display_cols = ['ZIP', 'final_score', selected_bed_col, '2024_CRIMERATE_VIOL', 'BART_COUNT']
+            display_cols = ['ZIP', 'final_score_str', selected_bed_col, '2024_CRIMERATE_VIOL', 'BART_COUNT']
             st.dataframe(results[display_cols].drop(columns='geometry', errors='ignore').head(10), use_container_width=True)
 
 if __name__ == "__main__":
