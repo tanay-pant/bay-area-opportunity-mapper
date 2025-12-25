@@ -60,18 +60,29 @@ def calculate_final_score(gdf, max_rent, bedroom_col, weights):
 
     # C. SCORE: Weighted Average
     # Extract weights dictionary
-    w_rent = weights['rent']
-    w_safety_viol = weights['safety_viol']
-    w_safety_prop = weights['safety_prop']
-    w_transit = weights['transit']
-    w_income = weights['income']
+
+    # The sliders use different maxima (most are 0-10, transit is 0-3), so we divide by slider max to normalize.
+    # Now, transit has as much of an impact as the others without needing a weirdly big integer range.
+    slider_max = {
+        'rent': 10,
+        'safety_viol': 10,
+        'safety_prop': 10,
+        'transit': 3,
+        'income': 10
+    }
+
+    # Normalize weights to 0-1 range based on slider maxima
+    w_rent = weights['rent'] / slider_max['rent'] if slider_max['rent'] else 0
+    w_safety_viol = weights['safety_viol'] / slider_max['safety_viol'] if slider_max['safety_viol'] else 0
+    w_safety_prop = weights['safety_prop'] / slider_max['safety_prop'] if slider_max['safety_prop'] else 0
+    w_transit = weights['transit'] / slider_max['transit'] if slider_max['transit'] else 0
+    w_income = weights['income'] / slider_max['income'] if slider_max['income'] else 0
 
     total_weight = w_rent + w_safety_viol + w_safety_prop + w_transit + w_income
-    # In case all weights are zero, set total_weight to 1 to avoid / 0
-    if total_weight == 0: 
+    if total_weight == 0:
         total_weight = 1
 
-    # Calculate Score
+    # Calculate weighted average using normalized slider weights
     filtered_gdf['final_score'] = (
         (w_rent * filtered_gdf[norm_rent_col]) +
         (w_safety_viol * filtered_gdf['norm_crime_rate_viol']) +
@@ -149,14 +160,6 @@ def main():
         st.warning(f"No ZIP codes found with a {bedroom_option} under ${budget}.")
     else:
         st.success(f"Found {len(results)} matching ZIP codes.")
-        
-        # ------ UNUSED, DISPLAY DATAFRAME WITH THE TOP TEN RESULTS -----------
-        #
-        #st.subheader("Top 10 ZIP Codes")
-        ##display_cols = ['ZIP', 'CITY', 'final_score', selected_bed_col, '2024_CRIMERATE_VIOL', 'CHANGE_IN_CRIME_VIOL%', '2024_CRIMERATE_PROP', 'CHANGE_IN_CRIME_PROP%', 'BART_COUNT', 'CalTrain_COUNT', 'DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST']
-        #st.dataframe(results[display_cols].head(10), use_container_width=True)
-        #
-        # ------ UNUSED, DISPLAY DATAFRAME WITH THE TOP TEN RESULTS -----------
 
         # keep some bounds so that map stays in Bay Area zone
 
@@ -164,7 +167,7 @@ def main():
         min_lat, max_lat = 36.5, 39.6
 
         # center map on Bay area
-        m = folium.Map(location=[37.85, -121.89], zoom_start=9,
+        m = folium.Map(location=[37.85, -121.89], zoom_start=9, max_bounds=True,
                 min_lat=min_lat, max_lat=max_lat, min_lon=min_lon, max_lon=max_lon,)
 
         bounds = results.total_bounds
@@ -240,17 +243,8 @@ def main():
         # Top 10 Table
         with st.expander("See Top 10 Details"):
             # Drop geometry for cleaner table display
-            display_cols = ['ZIP', 'final_score_str', selected_bed_col, '2024_CRIMERATE_VIOL', 'BART_COUNT']
-            st.dataframe(results[display_cols].drop(columns='geometry', errors='ignore').head(10), use_container_width=True)
+            display_cols = ['final_score_str', 'ZIP', 'COUNTY', 'ZPOP', f'DISPLAY_{selected_bed_col}', 'DISPLAY_2024_CRIMERATE_VIOL', 'TOTAL_HOUSEHOLDS_EST', 'DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST']
+            st.dataframe(results[display_cols].rename(columns={'final_score_str': 'Opportunity Score'}).head(10), use_container_width=True)
 
 if __name__ == "__main__":
     main()
-
-    ##### THINGS TO COMPLETE BEFORE THE PROJECT IS DONE #######:
-
-    # - make crime more readable, maybe in jupyter. USE POPUPS INSTEAD OF TOOLTIPS FOR COMPLEX DATA!!
-    # - dress up tooltips and popups in general, emojis based on crime going up or down, etc.
-    # - Look at weights: what's up with them not being normalized ints? Public transit matters less than the others, why?
-    # - make the sidebars look better
-    # - Give details about construction of the dataframe and how the scores are calculated
-    # - show population in tooltip not popup
