@@ -5,6 +5,9 @@ import folium
 from streamlit_folium import st_folium
 from shapely import wkt
 
+# License: MIT License — see LICENSE file in repository
+# Copyright (c) 2025 Tanay Pant
+
 # 1. PAGE CONFIGURATION
 st.set_page_config(
     page_title="Bay Area Opportunity Mapper",
@@ -100,6 +103,8 @@ def calculate_final_score(gdf, max_rent, bedroom_col, weights):
 def main():
     st.title("Bay Area Opportunity Mapper")
     st.markdown("Find the perfect ZIP code in the Bay for your career, budget, and lifestyle.")
+    st.markdown("Scroll down for details about this project.")
+
 
     # Load Data
     try:
@@ -217,6 +222,8 @@ def main():
         # form display options get updated here, DEFINITELY not the most efficient way but it works lmao
         if show_crime_stats: ttfields_.extend(['DISPLAY_CHANGE_IN_CRIME_VIOL%', 'DISPLAY_CHANGE_IN_CRIME_PROP%']); ttaliases_.extend(['Violent crime since 2020:', 'Property Crime since 2020:']) # repeated line 225 for clarity (for popups)
         if show_income: ttfields_.append('DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST'); ttaliases_.append('Median Household Income:')
+        
+        # what shows up in the tooltips (user HOVERS over zip code)
         folium.GeoJsonTooltip(
             fields=ttfields_,
             aliases=ttaliases_,
@@ -226,11 +233,12 @@ def main():
         pufields_ = ['ZPOP', f'DISPLAY_{selected_bed_col}_RANGE']
         pualiases_ = ['Population:', 'Average Rent Range:']
 
+        # form display options get updated here same as before
         if show_households: pufields_.append('TOTAL_HOUSEHOLDS_EST'); pualiases_.append('Total Households:')
         if show_transit: pufields_.extend(['BART_COUNT', 'CalTrain_COUNT']); pualiases_.extend(['BART Stations:', 'CalTrain Stations:'])
         if show_crime_stats: pufields_.extend(['DISPLAY_2024_CRIMERATE_VIOL', 'DISPLAY_2024_CRIMERATE_PROP']); pualiases_.extend(['2024 Violent Crime:', '2024 Property Crime:'])
 
-        # FIX THESE POPUPS LATER TO DISPLAY MORE DATA AND HAVE TOOLTIPS DISPLAY LESS DATA (or at least more concise)
+        # what shows up in the popups (user CLICKS on zip code)
         folium.GeoJsonPopup(
             fields=pufields_,
             aliases=pualiases_,
@@ -245,6 +253,48 @@ def main():
             # Drop geometry for cleaner table display
             display_cols = ['final_score_str', 'ZIP', 'COUNTY', 'ZPOP', f'DISPLAY_{selected_bed_col}', 'DISPLAY_2024_CRIMERATE_VIOL', 'TOTAL_HOUSEHOLDS_EST', 'DISPLAY_MEDIAN_INCOME_HOUSEHOLD_EST']
             st.dataframe(results[display_cols].rename(columns={'final_score_str': 'Opportunity Score'}).head(10), use_container_width=True)
+
+    # Polished footer: two columns, badges/links, short overview, data sources expander, and disclaimer
+    st.markdown("---")
+    col_left, col_right = st.columns([1, 2])
+
+    with col_left:
+        st.markdown(
+            """
+            **Made by**
+
+            **Tanay Pant**  
+            DS/Econ '27 — UC Berkeley
+
+            [View on GitHub](https://github.com/tanay-pant/bay-area-opportunity-mapper)
+            """
+        )
+        # small badges (static image shields)
+        st.markdown(
+            "![license](https://img.shields.io/badge/license-MIT-green) " \
+            "![python](https://img.shields.io/badge/python-3.10-blue)")
+
+    with col_right:
+        st.markdown("""
+        ### About this app
+
+        This interactive map helps you compare Bay Area ZIP codes by combining normalized measures of **rent**, **crime**, **transit access**, and **income** into a single *Opportunity Score* (0–100).
+
+        - Use the sidebar to adjust your budget and priorities.
+        - Hover to see quick stats; click a ZIP for a detailed popup.
+        - Scores are normalized so each category can reach equal maximum influence unless you change weights.
+        """)
+
+        with st.expander("Data sources & notes"):
+            st.markdown(
+                """
+                **Data sources:** see the repository README for the full list of sources (rent, crime, transit, income, and shapefiles).
+
+                **Method notes:** Datasets were sourced from government agencies and publicly available datasets, cleaned, merged on ZIP Code, and geometries prepared using GeoPandas. Final scores are a normalized weighted average of component metrics, then scaled to 0–100.
+                """
+            )
+
+        st.markdown("*Disclaimer: Do not use a single composite score as the deciding factor in choosing where to live.*")
 
 if __name__ == "__main__":
     main()
