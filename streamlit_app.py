@@ -104,7 +104,7 @@ def calculate_final_score(gdf, max_rent, bedroom_col, weights):
 def main():
     st.title("Bay Area Opportunity Mapper")
     st.markdown("Find the perfect ZIP code in the San Francisco Bay for your career, budget, and lifestyle.")
-    st.markdown("Scroll down for details about this project.")
+    st.markdown("Click on a ZIP code for more information, and scroll down for details about this project.")
 
     # Load Data
     try:
