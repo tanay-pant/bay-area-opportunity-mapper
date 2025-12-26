@@ -1,8 +1,6 @@
 # bay-area-opportunity-mapper
 
 ![license](https://img.shields.io/badge/license-MIT-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-
 > **An interactive heatmap built with GeoPandas and Folium to help explore promising Bay Area ZIP codes based on rent, crime, transit access, and income.**
 
 ![App Screenshot](/OppMapSS1.png)
