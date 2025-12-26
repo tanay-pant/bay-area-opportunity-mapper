@@ -19,6 +19,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
     # read final_df
+    # ======== IMPORTANT: ADJUST PATH AS NEEDED!! (Depending on where you clone the repo to) ========
     df = pd.read_csv('~/Downloads/bay-area-opportunity-mapper/final_df_with_norms.csv')
 
     # now convert geometry to shapely objects for map
@@ -102,15 +103,14 @@ def calculate_final_score(gdf, max_rent, bedroom_col, weights):
 # 4. MAIN APP INTERFACE
 def main():
     st.title("Bay Area Opportunity Mapper")
-    st.markdown("Find the perfect ZIP code in the Bay for your career, budget, and lifestyle.")
+    st.markdown("Find the perfect ZIP code in the San Francisco Bay for your career, budget, and lifestyle.")
     st.markdown("Scroll down for details about this project.")
-
 
     # Load Data
     try:
         gdf = load_data()
     except FileNotFoundError:
-        st.error("Error: file not found. Please run your normalization script first.")
+        st.error("Error: file not found. Please check your PATH.")
         return
 
     # --- SIDEBAR CONTROLS ---
@@ -262,7 +262,6 @@ def main():
         st.markdown(
             """
             **Made by**
-
             **Tanay Pant**  
             DS/Econ '27 — UC Berkeley
 
