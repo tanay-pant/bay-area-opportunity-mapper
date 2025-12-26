@@ -4,14 +4,14 @@
 
 > **An interactive heatmap built with GeoPandas and Folium to help explore promising Bay Area ZIP codes based on rent, crime, transit access, and income.**
 
-![App Screenshot](/Users/tanay-pant/Downloads/bay-area-opportunity-mapper/OppMapSS1.png)
+![App Screenshot](/OppMapSS1.png)
 
 ## Overview:
 The **Bay Area Opportunity Mapper** is an interactive web application that helps users identify promising neighborhoods by synthesizing disparate datasets. Unlike standard apartment finders that only look at rent, this tool calculates a holistic **"Opportunity Score"** for every ZIP code based on:
-    - **Affordability:** Median apartment rent per # of bedrooms.
-    - **Safety:** Violence and property crime rates (and trends).
-    - **Connectivity:** Access to BART and Caltrain transit systems.
-    - **Human Capital:** Local median income and economic vibrancy.
+-   **Affordability:** Median apartment rent per # of bedrooms.
+-   **Safety:** Violence and property crime rates (and trends).
+-   **Connectivity:** Access to BART and Caltrain transit systems.
+-   **Human Capital:** Local median income and economic vibrancy.
 
 ## Methodology/How It Works
 The scoring engine uses a Weighted Decision Matrix:
@@ -40,12 +40,12 @@ This is an early demo (2-week project of mine). Next steps could include using l
 
 ## Sources:
 
-Median Rent: [huduser.gov](https://www.huduser.gov/portal/datasets/fmr.html#documents_2026)
-GeoSpatial Zip Code Bay Area: [geodata](https://geodata.lib.berkeley.edu/catalog/ark28722-s7888q)
-BART: [bart.gov](https://www.bart.gov/schedules/developers/geo) / CalTrain: [arcgis](https://gisdata-caltrans.opendata.arcgis.com/datasets/7ad7157d33384076ae3363bffb3ce2be_0/explore?showTable=true)
-Median income: [census.gov](https://data.census.gov/table/ACSST1Y2024.S1901?q=S1901:+Income+in+the+Past+12+Months+(in+2024+Inflation-Adjusted+Dollars)&g=040XX00US06,06$8600000) (S1901)
-Crime Statistics: [OpenJustice DOJ](https://openjustice.doj.ca.gov/exploration/crime-statistics/crimes-clearances)
-Zip-Code, County, City crosswalk: [Census](https://www2.census.gov/geo/docs/maps-data/data/rel/zcta_county_rel_10.txt)
+-   Median Rent: [huduser.gov](https://www.huduser.gov/portal/datasets/fmr.html#documents_2026)
+-   GeoSpatial Zip Code Bay Area: [geodata](https://geodata.lib.berkeley.edu/catalog/ark28722-s7888q)
+-   BART: [bart.gov](https://www.bart.gov/schedules/developers/geo) / CalTrain: [arcgis](https://gisdata-caltrans.opendata.arcgis.com/datasets/7ad7157d33384076ae3363bffb3ce2be_0/explore?showTable=true)
+-   Median income: [census.gov](https://data.census.gov/table/ACSST1Y2024.S1901?q=S1901:+Income+in+the+Past+12+Months+(in+2024+Inflation-Adjusted+Dollars)&g=040XX00US06,06$8600000) (S1901)
+-   Crime Statistics: [OpenJustice DOJ](https://openjustice.doj.ca.gov/exploration/crime-statistics/crimes-clearances)
+-   Zip-Code, County, City crosswalk: [Census](https://www2.census.gov/geo/docs/maps-data/data/rel/zcta_county_rel_10.txt)
 
 ## License
 
