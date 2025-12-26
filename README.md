@@ -1,6 +1,7 @@
 # bay-area-opportunity-mapper
 
 ![license](https://img.shields.io/badge/license-MIT-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
 > **An interactive heatmap built with GeoPandas and Folium to help explore promising Bay Area ZIP codes based on rent, crime, transit access, and income.**
 
@@ -15,7 +16,7 @@ The **Bay Area Opportunity Mapper** is an interactive web application that helps
 
 ## Methodology/How It Works
 The scoring engine uses a Weighted Decision Matrix:
-1.  **Data Integration:** Merges HUD rent data, DOJ crime stats, and Census demographics using geospatial joins (GeoPandas). Drop useless zip codes and ensure proper data joins. The initial cleanup happens in _BaseDatasets1.ipnyb_, and the geospatial properties are merged in _GeoDatasets1.ipynb_.
+1.  **Data Integration:** Merges HUD rent data, DOJ crime stats, and Census demographics using geospatial joins (GeoPandas). Drop useless zip codes and ensure proper data joins. The initial cleanup happens in _BaseDatasets1.ipynb_, and the geospatial properties are merged in _GeoDatasets1.ipynb_.
 2.  **Normalization:** Scales all metrics from 0 to 1 using MinMax scaling (inverting "bad" metrics like crime/rent). This takes place in _Metrics1.ipynb_, which is also where the 'DISPLAY' columns are made for the front-end
 3.  **Dynamic Scoring:**
     $$\text{Score} = \frac{\sum (Weight_i \times Metric_i)}{\sum Weights}$$
@@ -23,7 +24,7 @@ The scoring engine uses a Weighted Decision Matrix:
 
 ## Project Structure
 * `streamlit_app.py`: The main application and front-end logic.
-* `The IPNYB files`: Notebooks that merge and clean dataframes into usable state. Base -> Geo -> Metrics.
+* `The IPYNB files`: Notebooks that merge and clean dataframes into usable state. Base -> Geo -> Metrics.
 * `final_df_with_norms.csv`: The processed dataset powering the app.
 * `raw_datasets/`: Contains raw CSVs and Shapefiles.
 
