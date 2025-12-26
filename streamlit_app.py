@@ -20,7 +20,7 @@ st.set_page_config(
 def load_data():
     # read final_df
     # ======== IMPORTANT: ADJUST PATH AS NEEDED!! (Depending on where you clone the repo to) ========
-    df = pd.read_csv('~/Downloads/bay-area-opportunity-mapper/final_df_with_norms.csv')
+    df = pd.read_csv('final_df_with_norms.csv')
 
     # now convert geometry to shapely objects for map
     df['geometry'] = df['geometry'].apply(wkt.loads)
