@@ -34,6 +34,21 @@ The scoring engine uses a Weighted Decision Matrix:
 - Web App Framework: Streamlit
 - Mapping Library: Folium
 
+### Setup
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/yourusername/bay-area-opportunity-mapper.git](https://github.com/yourusername/bay-area-opportunity-mapper.git)
+    cd bay-area-opportunity-mapper
+    ```
+2.  **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  **Run the App**
+    ```bash
+    streamlit run streamlit_app.py
+    ```
+
 ## Next Steps:
 
 This is an early demo (2-week project of mine). Next steps could include using live APIs (Zillow/Transit/Jobs) for present-day accurate data rather than relying on static CSV files supplied by the government. Additionally, improving data pipelines, adding richer streamlit interactivity, getting a dataset of crime by ZIP CODE as opposed to County, and introducing more metrics would help make the model more comprehensive.
