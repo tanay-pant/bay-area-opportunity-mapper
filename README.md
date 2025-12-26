@@ -4,10 +4,10 @@
 
 > **An interactive heatmap built with GeoPandas and Folium to help explore promising Bay Area ZIP codes based on rent, crime, transit access, and income.**
 
-![App Screenshot](path/to/your/screenshot.png)
+![App Screenshot](/Users/tanay-pant/Downloads/bay-area-opportunity-mapper/OppMapSS1.png)
 
 ## Overview:
-    The **Bay Area Opportunity Mapper** is an interactive web application that helps users identify promising neighborhoods by synthesizing disparate datasets. Unlike standard apartment finders that only look at rent, this tool calculates a holistic **"Opportunity Score"** for every ZIP code based on:
+The **Bay Area Opportunity Mapper** is an interactive web application that helps users identify promising neighborhoods by synthesizing disparate datasets. Unlike standard apartment finders that only look at rent, this tool calculates a holistic **"Opportunity Score"** for every ZIP code based on:
     - **Affordability:** Median apartment rent per # of bedrooms.
     - **Safety:** Violence and property crime rates (and trends).
     - **Connectivity:** Access to BART and Caltrain transit systems.
