@@ -104,7 +104,7 @@ def calculate_final_score(gdf, max_rent, bedroom_col, weights):
 def main():
     st.title("Bay Area Opportunity Mapper")
     st.markdown("Find the perfect ZIP code in the San Francisco Bay for your career, budget, and lifestyle.")
-    st.markdown("Edit your preferences on the left, then click 'Update Form' when you're done!")
+    st.markdown("Edit your preferences on the left, then click 'Update Map' when you're done!")
     st.markdown("Click on a ZIP code for more information, and scroll down for details about this project.")
 
     # Load Data
