@@ -1,10 +1,9 @@
-name: Keep Streamlit Alive
+name: Keep Streamlit Alive (Clean History)
 
 on:
   schedule:
-    # Runs every 10 hours to safely beat the 12-hour timeout
     - cron: '0 */10 * * *'
-  workflow_dispatch: # Allows you to trigger it manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   keep-alive:
@@ -13,12 +12,16 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          # Uses the default repository token to authorize the push
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 
 
-      - name: Push Empty Commit
+      - name: Overwrite Keepalive Commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --allow-empty -m "Keepalive: Reset Streamlit idle clock"
-          git push
+          
+          # Amend the absolute latest commit on the remote branch directly
+          git commit --allow-empty --amend --no-edit
+          
+          # Force push to overwrite the remote history completely
+          git push --force origin HEAD:${{ github.ref }}
