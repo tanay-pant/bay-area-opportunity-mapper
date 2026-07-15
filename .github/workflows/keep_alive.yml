@@ -1,0 +1,24 @@
+name: Keep Streamlit Alive
+
+on:
+  schedule:
+    # Runs every 10 hours to safely beat the 12-hour timeout
+    - cron: '0 */10 * * *'
+  workflow_dispatch: # Allows you to trigger it manually from the Actions tab
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          # Uses the default repository token to authorize the push
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Empty Commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Keepalive: Reset Streamlit idle clock"
+          git push
