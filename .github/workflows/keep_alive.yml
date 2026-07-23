@@ -20,8 +20,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Amend the absolute latest commit on the remote branch directly
-          git commit --allow-empty --amend --no-edit
+          # Check if the latest commit is a Keepalive commit
+          LAST_MSG=$(git log -1 --pretty=%B)
+          if [[ "$LAST_MSG" == Keepalive* ]]; then
+            # Amend the existing keepalive commit
+            git commit --allow-empty --amend --no-edit
+          else
+            # Create a new keepalive commit on top of recent commits
+            git commit --allow-empty -m "Keepalive: Reset Streamlit idle clock"
+          fi
           
-          # Force push to overwrite the remote history completely
+          # Force push to overwrite remote history
           git push --force origin HEAD:${{ github.ref }}

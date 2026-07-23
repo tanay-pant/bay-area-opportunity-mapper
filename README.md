@@ -38,7 +38,7 @@ The scoring engine uses a Weighted Decision Matrix:
 ### Setup
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/yourusername/bay-area-opportunity-mapper.git](https://github.com/yourusername/bay-area-opportunity-mapper.git)
+    git clone [https://github.com/tanay-pant/bay-area-opportunity-mapper.git](https://github.com/tanay-pant/bay-area-opportunity-mapper.git)
     cd bay-area-opportunity-mapper
     ```
 2.  **Install dependencies**
